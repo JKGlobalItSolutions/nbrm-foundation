@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Donate - NBRM Foundation</title>
+<link rel="icon" type="png" href="Seedling Sunrise Trust Emblem.png">
+<link rel="stylesheet" href="donate.css">
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+</head>
+
+<body>
+
+<header class="header">
+    <a href="index.html" class="logo">
+        NBRM <span>FOUNDATION</span>
+    </a>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="ministries.html">Ministries</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact</a>
+        <a href="donation.html" class="active">Donate</a>
+    </nav>
+</header>
+<section class="hero">
+    <h1>Support Our Mission</h1>
+    <p>Your generosity can bring hope and create positive change.</p>
+</section>
+
+<main class="container">
+
+    <section class="info">
+        <h2>Make a Difference</h2>
+
+        <p>
+            Every contribution can help support our community
+            initiatives and charitable activities.
+        </p>
+
+        <h3>How Your Donation Helps</h3>
+        <ul>
+            <li>Community support initiatives</li>
+            <li>Educational assistance programs</li>
+            <li>Support for people in need</li>
+            <li>Volunteer and outreach activities</li>
+        </ul>
+
+        <p style="margin-top:20px">
+            Thank you for supporting NBRM Foundation.
+        </p>
+
+
+        
+<!-- Bank Account Details -->
+<section class="bank-details">
+    <h2>Bank Account Details</h2>
+    <p>Donate directly to NBRM Foundation bank account.</p>
+
+    <div class="bank-info">
+        <p><strong>Account Name:</strong> NBRM Foundation</p>
+        <p><strong>Bank Name:</strong> STATE BANK OF INDIA</p>
+        <p><strong>Account Number:</strong> 44464397342</p>
+        <p><strong>IFSC Code:</strong> SBIN00016849</p>
+    </div>    
+    <div class="bank-info">
+        <p><strong>Account Name:</strong> NBRM Foundation</p>
+        <p><strong>Bank Name:</strong>UJJIVAN BANK</p>
+        <p><strong>Account Number:</strong>1170120030000538</p>
+        <p><strong>IFSC Code:</strong>UJVN0001170</p>
+    </div>
+</section>
+
+
+
+
+    </section>
+
+    <section class="donation-form">
+        <h2>Donate Now</h2>
+        <p>Select your preferred donation amount.</p>
+
+        <div class="amounts">
+            <button type="button" data-amount="1000">₹1000</button>
+            <button type="button" data-amount="2000">₹2000</button>
+            <button type="button" data-amount="3000">₹3000</button>
+            <button type="button" data-amount="5000">₹5000</button>
+        </div>
+
+        <div class="donation-container">
+  <form id="donationForm">
+
+            <label for="amount">Donation Amount (₹)</label>
+            <input type="number" id="amount"
+                   min="1" step="1"
+                   placeholder="Enter amount" required>
+
+            <label for="name">Full Name</label>
+            <input type="text" id="name"
+                   placeholder="Enter your name" required>
+
+            <label for="email">Email Address</label>
+            <input type="email" id="email"
+                   placeholder="Enter your email" required>
+
+            <label for="phone">Mobile Number</label>
+            <input type="tel" id="phone"
+                   pattern="[0-9]{10}"
+                   placeholder="10-digit mobile number" required>
+
+            <button class="donate-btn" type="submit">
+                Continue to Donate
+            </button>
+        </form>
+
+   
+        <p id="message" role="status"></p>
+        </div>
+    </section>
+
+</main>
+
+<!-- Fixed Donation QR Widget -->
+<div class="donate-widget">
+    <h3>❤️ Donate</h3>
+
+    <img src="scan.jpeg"
+         alt="NBRM Foundation Donation QR Code">
+
+    <p>Scan to Donate</p>
+</div>
+
+
+
+<footer>
+    <h3>NBRM Foundation</h3>
+    <p>Together, we can make a difference.</p>
+    <p>© 2026 NBRM Foundation. All rights reserved.</p>
+</footer>
+
+<script>
+// ================= EmailJS CONFIG =================
+// emailjs.com dashboard la irundhu intha 3 value-ah mattum maathunga
+const EMAILJS_PUBLIC_KEY  = "1VmtUFJU8JjYCOraO";
+const EMAILJS_SERVICE_ID  = "service_ji8oamh";
+const EMAILJS_TEMPLATE_ID = "template_tvjs5mr";
+// ==================================================
+
+emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+
+const amountInput   = document.getElementById("amount");
+const amountButtons = document.querySelectorAll("[data-amount]");
+const donationForm  = document.getElementById("donationForm");
+const messageBox    = document.getElementById("message");
+const submitBtn     = donationForm.querySelector(".donate-btn");
+
+// Quick amount buttons
+amountButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        amountInput.value = button.dataset.amount;
+        amountButtons.forEach(item => item.classList.remove("active"));
+        button.classList.add("active");
+    });
+});
+
+amountInput.addEventListener("input", () => {
+    amountButtons.forEach(button => {
+        button.classList.toggle("active", button.dataset.amount === amountInput.value);
+    });
+});
+
+function showMessage(text, isError) {
+    messageBox.textContent = text;
+    messageBox.style.color = isError ? "#b42318" : "#26764b";
+    messageBox.style.fontWeight = "600";
+    messageBox.style.marginTop = "15px";
+}
+
+// Form submit -> EmailJS
+donationForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const amount = Number(amountInput.value);
+    const name   = document.getElementById("name").value.trim();
+    const email  = document.getElementById("email").value.trim();
+    const phone  = document.getElementById("phone").value.trim();
+
+    if (amount < 1 || !name || !email || !/^[0-9]{10}$/.test(phone)) {
+        showMessage("Please enter valid details.", true);
+        return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Sending...";
+    showMessage("Sending your details...", false);
+
+    const templateParams = {
+        donor_name:  name,
+        donor_email: email,
+        donor_phone: phone,
+        amount:      amount,
+        date:        new Date().toLocaleString("en-IN")
+    };
+
+    emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
+        .then(() => {
+            showMessage("Thank you, " + name + "! Your donation details were sent. Please complete the payment using the bank details or QR code. Our team will contact you soon.", false);
+            donationForm.reset();
+            amountButtons.forEach(item => item.classList.remove("active"));
+        })
+        .catch(error => {
+            console.error("EmailJS error:", error);
+            showMessage("Sorry, details could not be sent. Please try again.", true);
+        })
+        .finally(() => {
+            submitBtn.disabled = false;
+            submitBtn.textContent = "Continue to Donate";
+        });
+});
+</script>
+
+
+</body>
+</html>

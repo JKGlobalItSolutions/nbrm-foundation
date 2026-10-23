@@ -1,0 +1,303 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f6f8f6;
+    color: #333;
+}
+
+/* Header */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 6%;
+    background: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px #00000012;
+}
+
+.logo {
+    color: #800020;
+    font-size: 23px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.logo span {
+    font-size: 13px;
+}
+
+nav {
+    display: flex;
+    gap: 22px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+nav a:hover,
+nav a.active {
+    color: #800020;
+}
+
+
+.hero {
+    min-height: 320px;
+    background:
+      linear-gradient(#0007, #0007),
+      url("https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?auto=format&fit=crop&w=1400&q=80")
+      center/cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 30px;
+}
+
+.hero h1 {
+    font-size: 43px;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 45px auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    align-items: start;
+}
+
+.info, .donation-form {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 18px #00000010;
+}
+
+h2 {
+    color: red;
+    margin-bottom: 18px;
+}
+
+.info p {
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+.info ul {
+    padding-left: 20px;
+    line-height: 2;
+}
+
+.amounts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 20px 0;
+}
+
+.amounts button {
+    padding: 15px;
+    border: 2px solid #218454;
+    background: white;
+    color: #155b3b;
+    border-radius: 6px;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+
+.amounts button:hover,
+.amounts button.active {
+    background: #218454;
+    color: white;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+input {
+    width: 100%;
+    padding: 13px;
+    margin-top: 7px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+.donate-btn {
+    width: 100%;
+    margin-top: 22px;
+    padding: 15px;
+    background: #155b3b;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.donate-btn:hover {
+    background: #218454;
+}
+
+#message {
+    margin-top: 15px;
+    line-height: 1.6;
+    color: #155b3b;
+}
+
+footer {
+    background: #123d2a;
+    color: white;
+    text-align: center;
+    padding: 25px;
+    line-height: 1.8;
+}
+
+
+#payment, #history {
+    display: none;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.qr {
+    width: 200px;
+    max-width: 100%;
+    display: block;
+    margin: 15px auto;
+}
+
+.item {
+    background: #f5f5f5;
+    padding: 10px;
+    margin-top: 10px;
+    overflow-wrap: anywhere;
+}
+.donate-widget {
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 145px;
+    padding: 12px;
+    background: #ffffff;
+    border: 2px solid #176b45;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px #0002;
+    text-align: center;
+    z-index: 9999;
+}
+
+.donate-widget h3 {
+    color: #176b45;
+    font-size: 17px;
+    margin: 0 0 10px;
+}
+
+.donate-widget img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.donate-widget p {
+    font-size: 12px;
+    margin: 8px 0 0;
+    color: #333;
+}
+
+@media (max-width: 600px) {
+    .donate-widget {
+        top: auto;
+        bottom: 15px;
+        right: 10px;
+        transform: none;
+        width: 100px;
+        padding: 8px;
+    }
+}
+
+@media(max-width: 700px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+
+    header {
+        flex-direction: column;
+    }
+
+    nav a {
+        margin: 0 6px;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+}
+
+.bank-details {
+    max-width: 650px;
+    margin: 30px auto;
+    padding: 25px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+    font-family: Arial, sans-serif;
+}
+
+.bank-details h2 {
+    color: #174b38;
+    margin-bottom: 12px;
+}
+
+.bank-info {
+    background: #f3f8f4;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 18px;
+    overflow-wrap: anywhere;
+}
+
+.bank-info p {
+    margin: 12px 0;
+    line-height: 1.6;
+}
+
+.bank-info button {
+    background: #174b38;
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.bank-info button:hover {
+    background: #23684d;
+}

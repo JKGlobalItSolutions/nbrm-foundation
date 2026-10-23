@@ -1,0 +1,153 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | NBRM Foundation</title>
+  <link rel="stylesheet" href="contact.css">
+</head>
+<body>
+
+<header class="header">
+    <a href="index.html" class="logo">
+        NBRM <span>FOUNDATION</span>
+    </a>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html" ">About Us</a>
+        <a href="ministries.html">Ministries</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html"class="active">Contact</a>
+        <a href="donation.html" class="donate-btn">Donate</a>
+    </nav>
+</header>
+
+<section class="hero">
+  <h1>Contact Us</h1>
+  <p>We are here to listen, support and serve our community.</p>
+</section>
+
+<main class="container">
+
+  <!-- Founder profile -->
+  <section class="founder-card">
+    <div class="founder-image">
+      <img src="PROFILE.jpeg"
+           alt="Founder of NBRM Foundation"
+           onerror="this.style.display='none';
+           document.getElementById('photoFallback').style.display='flex';">
+
+      <div id="photoFallback" class="photo-fallback">
+        Add Founder Photo
+      </div>
+    </div>
+
+    <div class="founder-info">
+      <span class="eyebrow">MEET OUR FOUNDER</span>
+      <h2>Mr. D. Winstone Christ Doss</h2>
+      <p class="qualification">B.E., B.D., MSW.,</p>
+      <p class="role">Founder – Manging Director </p>
+      <h2>Govt.Reg.No.BK/IV/86/2023</h2>
+      <p>
+        Dedicated to social empowerment, community support
+        and creating opportunities for a better future.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact details -->
+  <section class="contact-grid">
+
+    <div class="contact-info">
+      <h2>Get in Touch</h2>
+      <p>Contact us for enquiries, volunteering and community support.</p>
+
+      <div class="info-item">
+        <span class="info-icon">⌖</span>
+        <div>
+          <h3>Our Address</h3>
+          <p>No.40/3,New Vaniyankula Street,Tiruvannamalai Town,Tiruvannamalai Taluk & District,Tamilnadu,India-606601</p>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <span class="info-icon">☎</span>
+        <div>
+          <h3>Phone</h3>
+          <p>9566150800,9884841427</p>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <span class="info-icon">✉</span>
+        <div>
+          <h3>Email</h3>
+          <a href="mailto:nbrmfoundation@gmail.com">
+            nbrmfoundation@gmail.com
+          </a>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <span class="info-icon">◷</span>
+        <div>
+          <h3>Office Hours</h3>
+          <p>24/7</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact form -->
+    <div class="contact-form-card">
+      <h2>Send Us a Message</h2>
+      <p>Fill in your details and send us your enquiry.</p>
+
+      <form id="contactForm">
+        <label for="name">Full Name</label>
+        <input id="name" name="name" type="text"
+               placeholder="Enter your full name" required>
+
+        <label for="email">Email Address</label>
+        <input id="email" name="email" type="email"
+               placeholder="Enter your email" required>
+
+        <label for="phone">Mobile Number</label>
+        <input id="phone" name="phone" type="tel"
+               inputmode="numeric" pattern="[0-9]{10}"
+               placeholder="10-digit mobile number" required>
+
+        <label for="subject">Subject</label>
+        <select id="subject" name="subject" required>
+          <option value="">Select a subject</option>
+          <option>General Enquiry</option>
+          <option>Community Support</option>
+          <option>Volunteering</option>
+          <option>Donation Enquiry</option>
+          <option>Other</option>
+        </select>
+
+        <label for="message">Your Message</label>
+        <textarea id="message" name="message" rows="5"
+                  placeholder="Write your message here..."
+                  required></textarea>
+
+        <button type="submit" id="submitBtn">Send Message</button>
+        <p id="formStatus" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+
+  </section>
+</main>
+
+<footer>
+  <h3>NBRM Foundation</h3>
+  <p>Trust for Social Empowerment</p>
+  <p>Contact: nbrmfoundation@gmail.com</p>
+  <p>© <span id="year"></span> NBRM Foundation. All rights reserved.</p>
+</footer>
+
+<script src="contact.js"></script>
+</body>
+</html>
